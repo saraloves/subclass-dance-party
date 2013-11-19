@@ -11,7 +11,7 @@
 
     <div class="topbar">
       <span class="title">object dance party</span>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeBlinkyDancer">add a blinky dancer</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">add a blinky dancer</a>
     </div>
 
     <script>
@@ -37,7 +37,7 @@
           var dancerMakerFunction = window[dancerMakerFunctionName];
 
           // make a dancer with a random position
-          var dancer = dancerMakerFunction(
+          var dancer = new dancerMakerFunction(
             $("body").height() * Math.random(),
             $("body").width() * Math.random(),
             Math.random() * 1000
