@@ -5,6 +5,7 @@ body{
   margin: 0px;
   background-color:#444;
   font-size: 18px;
+  width: 95%;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
@@ -24,4 +25,35 @@ body, a:link, a:visited, a:active{
   border:10px solid red;
   border-radius:10px;
   position:absolute;
+}
+.fats{
+   width: 40px;
+   height: 20px;
+   border-radius: 3px;
+   position:absolute;
+   background-color: blue;
+   box-shadow: 3px 3px -2px white;
+}
+
+@-webkit-keyframes rotate {
+  10% { -webkit-transform: rotate(70deg) translate(320px); }
+  90% { -webkit-transform: rotate(-70deg) translate(320px); }
+}
+.chuck{
+  width: 272px;
+  height: 333px;
+  background-image: url('http://www.thepat.org/Sportsguy/Sports%20Post10_files/image006.jpg');
+  position: absolute;
+  -webkit-animation: rotate 3s ease-in-out infinite;
+  animation: rotate 1s linear infinite;
+}
+
+@-webkit-keyframes goleft {
+  10% { -webkit-transform: translate(40px);}
+  90% { -webkit-transform: translate(-1000px);}
+}
+.left {
+  background-color: white;
+  width: 100px;
+  height: 100%
 }

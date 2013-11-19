@@ -16,14 +16,10 @@ var BlinkyDancer = function(top, left, timeBetweenSteps){
 BlinkyDancer.prototype = new Dancer();
 
 BlinkyDancer.prototype.step = function(){
-  // do what whatever a blinky dancer does
-  //oldStep();
-  //Dancer.prototype.$node.toggle();
-  console.log('blinky proto set:', this);
-this.$node.toggle();
+
   Dancer.prototype.step.call(this);
 
-  
+  this.$node.toggle();
 };
 
 BlinkyDancer.prototype.constructor = BlinkyDancer;
