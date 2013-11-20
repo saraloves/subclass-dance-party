@@ -22,8 +22,15 @@
     <script>
       $(document).ready(function(){
         window.dancers = [];
+        window.chucks = [];
+        var detect = function() {
+          var res = [];
+          for (var i = 0; i < chucks.length; i++) {
+            res.push(chucks[i].position());
+          }
+          return res;
+        };
         $(".leftButton").on("click", function(event){
-          
           for (var i = 0; i < window.dancers.length; i++) {
             window.dancers[i].lineUp();
           }
@@ -51,6 +58,9 @@
           );
           $('body').append(dancer.$node);
           dancers.push(dancer);
+          $('.fats').on('mouseenter', function(event) {
+            $(this).addClass('fatter');
+          });
         });
         $(".cool").on("click", function(event){
           var dancerMakerFunctionName = $(this).data("chuckdancer-name");
@@ -62,6 +72,32 @@
           );
           $('body').append(dancer.$node);
           dancers.push(dancer);
+          chucks.push(dancer.$node);
+          var stuff = detect();
+          console.log(stuff);
+          for (var i = 0; i < stuff.length; i++) {
+            for (var k = 0; k < stuff.length; k++) {
+              var leftCompare = stuff[k].left - stuff[i].left;
+              var topCompare = stuff[k].top - stuff[i].top;
+              console.log("Left compare is: " + Math.abs(leftCompare) + " Top Compare is: "+ Math.abs(topCompare));
+
+              if ((Math.abs(leftCompare) + Math.abs(topCompare)) < 500 && (Math.abs(leftCompare) + Math.abs(topCompare)) !== 0 ) {
+                chucks[i].fadeOut('slow');
+                chucks[k].fadeOut('slow');
+                if (k < i) {
+                  chucks.splice(i, 1);
+                  chucks.splice(k, 1);
+                  stuff.splice(i, 1);
+                  stuff.splice(k, 1);
+                } else {
+                  chucks.splice(k, 1);
+                  chucks.splice(i, 1);
+                  stuff.splice(k, 1);
+                  stuff.splice(i, 1);
+                }
+              }
+            };
+          }
         });
       });
     </script>

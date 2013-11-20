@@ -5,7 +5,6 @@ var FatDancer = function(top, left, timeBetweenSteps){
 
 FatDancer.prototype = new Dancer();
 FatDancer.prototype.step = function(){
-  console.log('blinky proto set:', this);
   Dancer.prototype.step.call(this);
   this.$node.removeClass("dancer").addClass("fats").animate({
     left: '+=20'

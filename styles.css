@@ -36,24 +36,22 @@ body, a:link, a:visited, a:active{
 }
 
 @-webkit-keyframes rotate {
-  10% { -webkit-transform: rotate(70deg) translate(320px); }
-  90% { -webkit-transform: rotate(-70deg) translate(320px); }
+  50% { -webkit-transform: rotate(-180deg);}
+  50% { -webkit-transform: rotate(360deg) scale(0.5);}
+}
+
+@-webkit-keyframes fatter {
+  100% { -webkit-transform: scale(3.4);}
 }
 .chuck{
   width: 272px;
   height: 333px;
   background-image: url('http://www.thepat.org/Sportsguy/Sports%20Post10_files/image006.jpg');
   position: absolute;
-  -webkit-animation: rotate 3s ease-in-out infinite;
+  -webkit-animation: rotate 3s linear infinite;
   animation: rotate 1s linear infinite;
 }
 
-@-webkit-keyframes goleft {
-  10% { -webkit-transform: translate(40px);}
-  90% { -webkit-transform: translate(-1000px);}
-}
-.left {
-  background-color: white;
-  width: 100px;
-  height: 100%
+.fatter {
+  -webkit-animation: fatter 2s linear;
 }
